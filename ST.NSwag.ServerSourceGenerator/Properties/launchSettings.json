@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Profile 1": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\ST.NSwag.ServerSourceGenerator.Example\\ST.NSwag.ServerSourceGenerator.Example.csproj"
+    }
+  }
+}

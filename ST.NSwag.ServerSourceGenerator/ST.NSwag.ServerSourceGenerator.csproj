@@ -1,7 +1,41 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)../artifacts</PackageOutputPath>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IsRoslynComponent>true</IsRoslynComponent>
+  </PropertyGroup>
+    
+  <PropertyGroup Label="NuGet Meta">
+      <VersionPrefix>0.0.1</VersionPrefix>
+      <VersionSuffix Condition=" '$(Configuration)' == 'Debug' ">pre$([System.DateTime]::UtcNow.ToString(yyyyMMdd-HHmm))</VersionSuffix>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <PackageProjectUrl>https://github.com/s-tarasov/ST.NSwag.ServerSourceGenerator</PackageProjectUrl>
+      <Authors>starasov</Authors>
+      <Description>Generate controllers by openapi specs using Nswag</Description>
+      <Summary>Generate controllers by openapi specs using Nswag</Summary>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+      <RepositoryUrl>https://github.com/s-tarasov/ST.NSwag.ServerSourceGenerator</RepositoryUrl>
+      <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NSwag.CodeGeneration.CSharp" Version="13.17.0" PrivateAssets="all" />
+    <PackageReference Include="NSwag.Core.Yaml" Version="13.17.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" PrivateAssets="all" />
+    <PackageReference Include="H.Generators.Extensions" Version="1.7.7" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="ST.NSwag.ServerSourceGenerator.props" Pack="true" PackagePath="build" Visible="false" />      
+  </ItemGroup>
 </Project>

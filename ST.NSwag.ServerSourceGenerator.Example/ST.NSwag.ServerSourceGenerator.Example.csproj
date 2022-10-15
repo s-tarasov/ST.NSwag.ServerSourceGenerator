@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+        <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
+        <UsePackage>true</UsePackage>
+    </PropertyGroup>
+
+    <Import Condition="'$(UsePackage)' != 'true'" Project="..\ST.NSwag.ServerSourceGenerator\ST.NSwag.ServerSourceGenerator.props" />
+
+    <ItemGroup Condition="'$(UsePackage)' != 'true'">
+        <ProjectReference Include="..\ST.NSwag.ServerSourceGenerator\ST.NSwag.ServerSourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(UsePackage)' == 'true'">        
+        <PackageReference Include="ST.NSwag.ServerSourceGenerator" Version="*-*">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="$(CompilerGeneratedFilesOutputPath)/**/*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="example.openapi.yaml" />
+        <AdditionalFiles Include="..\specs\linkedExample.openapi.yaml" Link="Nested\linkedExample.openapi.yaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+</Project>

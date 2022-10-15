@@ -1,0 +1,11 @@
+﻿public static class Routes
+{
+   {%-     for operation in Operations %}
+   {%-         if operation.HasSummary %}
+    /// <summary>
+    /// {{ operation.Summary | csharpdocs }}
+    /// </summary>
+    /// <returns>{{ operation.UnwrappedResultType }}</returns>{%-         endif %}
+    public const string {{ operation.ActualOperationName }} = "{{ operation.Path }}";
+    {%-      endfor %}
+}
