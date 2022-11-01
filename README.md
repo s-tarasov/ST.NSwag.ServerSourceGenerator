@@ -31,7 +31,3 @@ Example: example.openapi.yaml -> example.openapi.yaml.nswag
 ### Faq
 - How to generate or edit .nswag file?
 > Use [NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio) 
-
-
-
-
