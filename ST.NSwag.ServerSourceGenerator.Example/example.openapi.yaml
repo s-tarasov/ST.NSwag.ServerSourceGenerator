@@ -45,7 +45,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "../specs/error.openapi.yaml#/components/schemas/Error"
     post:
       summary: Create a pet
       operationId: createPets
@@ -59,7 +59,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "../specs/error.openapi.yaml#/components/schemas/Error"
   /pets/{petId}:
     get:
       summary: Info for a specific pet
@@ -85,7 +85,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "../specs/error.openapi.yaml#/components/schemas/Error"
 components:
   schemas:
     Pet:
@@ -106,14 +106,3 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Pet"
-    Error:
-      type: object
-      required:
-        - code
-        - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string

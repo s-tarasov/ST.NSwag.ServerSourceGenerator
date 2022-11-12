@@ -13,7 +13,7 @@
   </PropertyGroup>
     
   <PropertyGroup Label="NuGet Meta">
-      <VersionPrefix>0.0.2</VersionPrefix>
+      <VersionPrefix>0.0.3</VersionPrefix>
       <VersionSuffix Condition=" '$(Configuration)' == 'Debug' ">pre$([System.DateTime]::UtcNow.ToString(yyyyMMdd-HHmm))</VersionSuffix>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
       <PackageProjectUrl>https://github.com/s-tarasov/ST.NSwag.ServerSourceGenerator</PackageProjectUrl>

@@ -25,7 +25,7 @@ namespace ST.NSwag.ServerSourceGenerator
         {
             var openapiContent = openapiText.GetText(cancellationToken)!.ToString();
             var nswagFilePath = GetNswagFilePath(openapiText, optionProvider);
-            var fileContent = CSharpControllerGeneratorRunner.GenerateController(nswagFilePath, openapiContent, cancellationToken);
+            var fileContent = CSharpControllerGeneratorRunner.GenerateController(nswagFilePath, openapiText.Path, openapiContent, cancellationToken);
             return (name: ToSourceHint(openapiText), content: fileContent);
         }
 

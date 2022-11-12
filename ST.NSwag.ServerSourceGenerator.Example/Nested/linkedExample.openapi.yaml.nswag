@@ -1,10 +1,10 @@
 {
-  "runtime": "Net50",
+  "runtime": "WinX64",
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
       "json": "",
-      "url": "openapi_server.yaml",
+      "url": "..\\..\\specs\\linkedExample.openapi.yaml",
       "output": null,
       "newLineBehavior": "Auto"
     }
